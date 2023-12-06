@@ -1,0 +1,10 @@
+问题记录：
+	hw02:
+		make_repeater函数借助accumulate如何实现
+		思考题部分
+
+
+
+
+
+学习进度
