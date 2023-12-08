@@ -246,23 +246,25 @@ def announce_highest(who, last_score=0, running_high=0):
     "*** YOUR CODE HERE ***"
 
     def say(score0, score1):
+        new_running_high = running_high
         if who == 0:
-            score0_increase = score0 - last_score
-            if score0_increase > running_high:
+            if score0 - last_score > running_high:
                 print(
-                    score0_increase,
-                    "point(s)! That's the biggest gain yet for Player",
-                    who,
+                    score0 - last_score,
+                    "point(s)! That's the biggest gain yet for Player 0",
                 )
-        else:
-            score1_increase = score1 - last_score
-            if score1_increase > running_high:
+                new_running_high = score0 - last_score
+            return announce_highest(0, score0, new_running_high)
+        elif who == 1:
+            if score1 - last_score > running_high:
                 print(
-                    score1_increase,
-                    "point(s)! That's the biggest gain yet for Player",
-                    who,
+                    score1 - last_score,
+                    "point(s)! That's the biggest gain yet for Player 1",
                 )
-        return say
+                new_running_high = score1 - last_score
+            return announce_highest(1, score1, new_running_high)
+
+    return say
 
     # END PROBLEM 7
 
